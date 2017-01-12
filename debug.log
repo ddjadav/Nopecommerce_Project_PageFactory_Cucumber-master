@@ -1,0 +1,6 @@
+[1218/031350:ERROR:process_info.cc(330)] VirtualQueryEx: Access is denied. (0x5)
+[1218/031350:ERROR:process_info.cc(547)] ReadMemoryInfo failed
+[1218/031350:ERROR:process_reader_win.cc(142)] SuspendThread: Access is denied. (0x5)
+[1218/031350:ERROR:exception_snapshot_win.cc(87)] thread ID 12692 not found in process
+[1218/031350:WARNING:crash_report_exception_handler.cc(61)] ProcessSnapshotWin::Initialize failed
+[1218/031350:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: An attempt was made to access an exiting process.  (0xc000010a)
