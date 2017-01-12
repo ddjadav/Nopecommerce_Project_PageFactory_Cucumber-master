@@ -180,7 +180,6 @@ public class TestSuit extends DriverManager {
 //        Assert.assertEquals(driver.findElement(By.id("SearchbarReadonly-when")).getText(),"26 Aug 2017","Date is Not Correct");
 //        Assert.assertEquals(driver.findElement(By.id("SearchbarReadonly-value0")).getText(),"Room 1: 2 Adults, 2 Children","Rooms and Passanger count is Not Correct");
         List<WebElement>hotelNames = driver.findElements(By.xpath("//div[@id='searchResults']/div"));
-       // System.out.println(hotelNames.size());
         for (int i =2 ; i <=hotelNames.size()-1 ; i++) {
             System.out.println("("+(i-1)+") "+driver.findElement(By.xpath("//div[@id='searchResults']/div["+i+"]/div/div/h4/div")).getText());
         }
@@ -190,10 +189,6 @@ public class TestSuit extends DriverManager {
         Thread.sleep(5000);
         softAssert.assertAll();
         System.out.println("git");
-        //
-
-
-
     }
 
 
