@@ -17,30 +17,31 @@ import org.testng.Assert;
  */
 public class LoginSteps extends DriverManager{
 
-    @Before
-    public static void open() throws Exception {
+//    @Before
+//    public static void open() throws Exception {
         // String browser = LoadProperties.getProperty("Browser");
-        String browser = System.getProperty("browser");
-        System.out.println(browser);
-        if (browser.equalsIgnoreCase("IE")) {
-            DriverManager.openBrowser(browser);
+//        String browser = System.getProperty("browser");
+//        System.out.println(browser);
+//        if (browser.equalsIgnoreCase("IE")) {
+//            DriverManager.openBrowser(browser);
+//
+//        } else {
+//            DriverManager.openBrowser(browser);
+//        }
+//    }
 
-        } else {
-            DriverManager.openBrowser(browser);
-        }
-    }
-
-    @After
-    public static void close(){
-
-
-        DriverManager.closeBrowser();
-
-    }
+//    @After
+//    public static void close(){
+//
+//
+//        DriverManager.closeBrowser();
+//
+//    }
 
     @Given("^user open browser and goto Nopecommerce website$")
     public void user_open_browser_and_goto_Nopecommerce_website() throws Throwable {
-
+        String browser = System.getProperty("browser");
+        DriverManager.openBrowser(browser);
         Registrationpage registrationpage=new Registrationpage();
 
         registrationpage.clickonregistrationlink();
@@ -74,6 +75,7 @@ public class LoginSteps extends DriverManager{
         Utils.webDriverWaitImplicitly(10);
         Assert.assertEquals(loginPage.getLoginAccountInfo(),registration.actext,"\n User Successfully Logged in");
         registration.logout();
+        DriverManager.closeBrowser();
 
     }
 }

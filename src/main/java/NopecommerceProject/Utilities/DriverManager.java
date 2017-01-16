@@ -21,7 +21,7 @@ public class DriverManager {
     public static void openBrowser (String browserName) throws Exception {
         BrowserFactory browserFactory =new BrowserFactory();
         browserFactory.GetBrowser(browserName);
-        driver.get(LoadProperties.getProperty("URL1"));
+        driver.get(LoadProperties.getProperty("URL"));
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }

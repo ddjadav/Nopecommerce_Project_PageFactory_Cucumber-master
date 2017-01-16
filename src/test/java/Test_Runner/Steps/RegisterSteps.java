@@ -9,35 +9,39 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 /**
  * Created by kaival on 30/11/2016.
  */
 public class RegisterSteps extends DriverManager {
 
-    @Before
-    public static void open() throws Exception {
+//    @BeforeMethod
+//    public static void open() throws Exception {
         // String browser = LoadProperties.getProperty("Browser");
-        String browser = System.getProperty("browser");
-        System.out.println(browser);
-        if (browser.equalsIgnoreCase("IE")) {
-            DriverManager.openBrowser(browser);
+//        String browser = System.getProperty("browser");
+//        System.out.println(browser);
+//        if (browser.equalsIgnoreCase("IE")) {
+//            DriverManager.openBrowser(browser);
+//
+//        } else {
+//            DriverManager.openBrowser(browser);
+//        }
+//    }
 
-        } else {
-            DriverManager.openBrowser(browser);
-        }
-    }
-
-    @After
-    public static void close(){
-
-
-        DriverManager.closeBrowser();
-    }
+//    @AfterMethod
+//    public static void close(){
+//
+//
+//        DriverManager.closeBrowser();
+//    }
 
 
     @Given("^I open browser and goto Nopecommerce website$")
     public void i_open_browser_and_goto_Nopecommerce_website() throws Throwable {
+        String browser = System.getProperty("browser");
+        DriverManager.openBrowser(browser);
 
     }
 
@@ -69,6 +73,7 @@ public class RegisterSteps extends DriverManager {
         Registrationpage registration = new Registrationpage();
         Assert.assertTrue(registration.registrationSuccessfulMessage(),"Your registration completed");
         registration.logout();
+        DriverManager.closeBrowser();
 
     }
 }
